@@ -1,0 +1,74 @@
+:root {
+  --color-bg: #fafcfd;
+  --color-surface: #ffffff;
+  --color-border: #e7eaee;
+
+  --color-text-primary: #1f2933;
+  --color-text-secondary: #8a8f98;
+  --color-text-muted: #b3b7bd;
+
+  --color-accent: #e2672e;
+  --color-accent-hover: #c85526;
+
+  --font-serif: 'Lora', Georgia, serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+  --space-7: 96px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+
+  --container-max: 1280px;
+  --container-pad: 32px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  cursor: none;
+}
+
+::selection {
+  background: rgba(226, 103, 46, 0.18);
+  color: var(--color-accent-hover);
+}
