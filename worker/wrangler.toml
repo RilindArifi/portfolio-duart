@@ -1,0 +1,21 @@
+name = "askduart-api"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
+
+[ai]
+binding = "AI"
+
+[vars]
+# Comma-separated list of origins allowed to call this Worker.
+# Replace the production entry with the real Namecheap-hosted domain before deploying.
+ALLOWED_ORIGINS = "https://duart.dev,http://localhost:5173,http://127.0.0.1:5173"
+RATE_LIMIT_MAX = "18"
+RATE_LIMIT_WINDOW_SECONDS = "3600"
+
+# No AI provider API key needed — Workers AI runs on the Cloudflare account's
+# own free daily allocation via the [ai] binding above.

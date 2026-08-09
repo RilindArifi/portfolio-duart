@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import ChatToggle from '@/components/chat/ChatToggle.vue'
 
 const route = useRoute()
 const isWorkActive = computed(
@@ -20,6 +21,9 @@ const isWorkActive = computed(
       <RouterLink to="/about">About</RouterLink>
       <a href="/Duart_CV.pdf" target="_blank" rel="noopener">Resume</a>
     </nav>
+    <div class="header-actions">
+      <ChatToggle />
+    </div>
   </header>
 </template>
 
@@ -28,10 +32,11 @@ const isWorkActive = computed(
   position: sticky;
   top: 0;
   z-index: 100;
-  display: flex;
+  height: 65px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--space-4) var(--container-pad);
+  padding: 0 var(--container-pad);
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 }
@@ -41,6 +46,7 @@ const isWorkActive = computed(
   align-items: baseline;
   gap: var(--space-3);
   font-family: var(--font-mono);
+  justify-self: start;
 }
 
 .name {
@@ -55,13 +61,27 @@ const isWorkActive = computed(
   text-transform: uppercase;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
 .header-nav {
   display: flex;
   align-items: center;
+  justify-self: center;
   gap: 32px;
   font-family: var(--font-mono);
   text-transform: uppercase;
   font-size: 13px;
+  line-height: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
 }
 
 .header-nav a {
