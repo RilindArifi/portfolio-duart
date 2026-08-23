@@ -33,7 +33,7 @@ function handleChip(text) {
     <div class="askduart-catcher" :class="{ 'is-open': isOpen }" @click="close" />
     <aside class="askduart-panel" :class="{ 'is-open': isOpen }" :aria-hidden="!isOpen">
       <header class="panel-header">
-        <span class="panel-title">ASKDUART</span>
+        <span class="panel-title">Ask Duart</span>
         <div class="panel-actions">
           <button
             class="icon-btn"
@@ -163,7 +163,7 @@ function handleChip(text) {
 }
 
 .panel-header {
-  height: 65px;
+  height: 87px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -174,9 +174,9 @@ function handleChip(text) {
 .panel-title {
   font-family: var(--font-mono);
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 13px;
-  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
 }
 
 .panel-actions {

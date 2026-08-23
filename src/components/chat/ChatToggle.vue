@@ -86,4 +86,37 @@ const { isOpen, toggle } = useAskDuart()
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+  .chat-toggle {
+    position: fixed;
+    right: var(--space-4);
+    bottom: var(--space-4);
+    z-index: 40;
+    color: #fff;
+  }
+
+  .chat-toggle-label {
+    display: none;
+  }
+
+  .chat-toggle-badge,
+  .chat-toggle.is-open .chat-toggle-badge {
+    width: 48px;
+    height: 48px;
+    background: var(--color-accent);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .chat-toggle-icon,
+  .chat-toggle.is-open .chat-toggle-icon {
+    width: 22px;
+    height: 22px;
+    color: #fff;
+  }
+
+  .chat-toggle:hover {
+    color: #fff;
+  }
+}
 </style>

@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import TimelineList from './TimelineList.vue'
 import { experience } from '@/data/experience.js'
 
-const words = ['experiences', 'design']
+const words = ['clarity', 'design']
 const typedWord = ref('')
 const showPeriod = ref(false)
 let wordIndex = 0
@@ -46,7 +46,8 @@ onUnmounted(() => clearTimeout(timeoutId))
 <template>
   <section class="hero">
     <h1 class="headline">
-      I'm Duart, a Product Designer turning complex ideas into simple
+      I'm Duart, a product designer who turns<br />
+      complexity into
       <span class="typewriter"
         >{{ typedWord }}<span v-show="showPeriod">.</span><span class="cursor"></span
       ></span>
@@ -66,8 +67,8 @@ onUnmounted(() => clearTimeout(timeoutId))
 
 .headline {
   font-family: var(--font-serif);
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-  line-height: 1.15;
+  font-size: clamp(1.5rem, 2.6vw, 2.5rem);
+  line-height: 1.25;
   font-weight: 400;
 }
 
@@ -99,13 +100,12 @@ onUnmounted(() => clearTimeout(timeoutId))
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
+    gap: var(--space-6);
     margin-top: 56px;
   }
-}
 
-@media (min-width: 1200px) and (max-width: 1650px) {
-  .typewriter {
-    display: block;
+  .headline {
+    font-size: clamp(1.85rem, 7vw, 2.5rem);
   }
 }
 </style>

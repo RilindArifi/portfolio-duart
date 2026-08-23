@@ -11,11 +11,13 @@ defineProps({
   <ul class="timeline-list">
     <li v-for="item in experience" :key="item.company" class="timeline-row">
       <span class="year">{{ item.year }}</span>
-      <a v-if="item.url" :href="item.url" class="company" target="_blank" rel="noopener">{{
-        item.company
-      }}</a>
-      <span v-else class="company">{{ item.company }}</span>
-      <span class="role">{{ item.role }}</span>
+      <div class="details">
+        <a v-if="item.url" :href="item.url" class="company" target="_blank" rel="noopener">{{
+          item.company
+        }}</a>
+        <span v-else class="company">{{ item.company }}</span>
+        <span class="role">{{ item.role }}</span>
+      </div>
     </li>
   </ul>
 </template>
@@ -32,6 +34,10 @@ defineProps({
 }
 
 .timeline-row {
+  display: contents;
+}
+
+.details {
   display: contents;
 }
 
@@ -58,10 +64,22 @@ defineProps({
   .timeline-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-4);
   }
 
   .timeline-row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+
+  .year {
+    flex-shrink: 0;
+    width: 88px;
+  }
+
+  .details {
     display: flex;
     flex-direction: column;
     gap: 2px;

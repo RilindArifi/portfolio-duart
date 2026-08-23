@@ -37,6 +37,12 @@
   --container-pad: 32px;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --container-pad: 24px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import ChatToggle from '@/components/chat/ChatToggle.vue'
 
@@ -7,6 +7,18 @@ const route = useRoute()
 const isWorkActive = computed(
   () => route.name === 'home' || route.name === 'project-detail',
 )
+
+const isMenuOpen = ref(false)
+
+function toggleMenu() {
+  isMenuOpen.value = !isMenuOpen.value
+}
+
+function closeMenu() {
+  isMenuOpen.value = false
+}
+
+watch(() => route.fullPath, closeMenu)
 </script>
 
 <template>
@@ -28,7 +40,26 @@ const isWorkActive = computed(
       </nav>
       <div class="header-actions">
         <ChatToggle />
+        <button
+          class="menu-toggle"
+          :class="{ 'is-open': isMenuOpen }"
+          aria-label="Toggle menu"
+          :aria-expanded="isMenuOpen"
+          @click="toggleMenu"
+        >
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+        </button>
       </div>
+    </div>
+    <div class="mobile-nav-wrap" :class="{ 'is-open': isMenuOpen }">
+      <nav class="mobile-nav">
+        <RouterLink to="/" :class="{ 'router-link-active': isWorkActive }">Work</RouterLink>
+        <RouterLink to="/fun">Fun</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <a href="/Duart_CV.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
     </div>
   </header>
 </template>
@@ -83,7 +114,7 @@ const isWorkActive = computed(
 }
 
 .name {
-  font-size: 16px;
+  font-size: 15px;
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -91,7 +122,7 @@ const isWorkActive = computed(
 
 .role {
   color: var(--color-text-secondary);
-  font-size: 16px;
+  font-size: 15px;
   text-transform: uppercase;
   transition: color 0.25s ease;
 }
@@ -119,14 +150,56 @@ const isWorkActive = computed(
   gap: 32px;
   font-family: var(--font-mono);
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
+  gap: var(--space-3);
   justify-self: end;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+}
+
+.menu-toggle-bar {
+  width: 20px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color-text-primary);
+  transition:
+    transform 0.3s ease,
+    opacity 0.2s ease,
+    background 0.15s ease;
+}
+
+.menu-toggle:hover .menu-toggle-bar {
+  background: var(--color-accent);
+}
+
+.menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open .menu-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-nav-wrap {
+  display: none;
 }
 
 .header-nav a {
@@ -145,6 +218,58 @@ const isWorkActive = computed(
 @media (max-width: 640px) {
   .role {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .mobile-nav-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+
+  .mobile-nav-wrap.is-open {
+    grid-template-rows: 1fr;
+  }
+
+  .mobile-nav {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: 0 var(--container-pad);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+
+  .mobile-nav-wrap.is-open .mobile-nav {
+    padding: var(--space-2) var(--container-pad) var(--space-5);
+  }
+
+  .mobile-nav a {
+    color: var(--color-text-primary);
+    transition: color 0.15s ease;
+  }
+
+  .mobile-nav a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .mobile-nav a.router-link-active {
+    color: var(--color-accent);
   }
 }
 </style>

@@ -26,6 +26,7 @@ import { funProjects } from '@/data/fun.js'
   font-family: var(--font-serif);
   font-size: clamp(2.25rem, 5vw, 3.5rem);
   line-height: 1.15;
+  font-weight: 400;
 }
 
 .headline em {
