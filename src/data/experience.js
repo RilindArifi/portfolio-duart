@@ -1,26 +1,26 @@
 export const experience = [
   {
     year: '2024 — Now',
-    company: 'Nordlicht Studio',
-    url: '#',
-    role: 'Senior UI/UX Designer',
+    company: 'Newcode',
+    url: 'https://www.newcode.com',
+    role: 'AI Product Designer',
   },
   {
     year: '2022 — 2024',
-    company: 'Fjord Labs',
-    url: '#',
-    role: 'UI/UX Designer',
-  },
-  {
-    year: '2020 — 2022',
-    company: 'Havn & Co.',
-    url: '#',
+    company: 'Fortifai',
+    url: 'https://reggy.co/',
     role: 'Product Designer',
   },
   {
-    year: '2019 — 2020',
-    company: 'Freelance',
-    url: '#',
-    role: 'Visual Designer',
+    year: '2021 — 2022',
+    company: 'Monun AG',
+    url: 'https://www.monun.ch',
+    role: 'UX/UI Designer',
+  },
+  {
+    year: '2020 — 2022',
+    company: 'Clickus.io',
+    url: null,
+    role: 'UX/UI Designer',
   },
 ]

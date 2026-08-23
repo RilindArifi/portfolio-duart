@@ -42,33 +42,33 @@ const isWorkActive = computed(
 .header-inner {
   max-width: var(--container-max);
   margin: 0 auto;
-  height: 65px;
+  min-height: 65px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 0 var(--container-pad);
+  padding: var(--space-2) var(--container-pad);
 }
 
 .identity {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 4px;
   font-family: var(--font-mono);
   justify-self: start;
 }
 
 .avatar-wrap {
   position: relative;
-  width: 28px;
-  height: 28px;
+  width: 70px;
+  height: 70px;
   flex-shrink: 0;
 }
 
 .avatar {
   position: absolute;
   inset: 0;
-  width: 28px;
-  height: 28px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   object-fit: cover;
   transition: opacity 0.25s ease;
@@ -83,6 +83,7 @@ const isWorkActive = computed(
 }
 
 .name {
+  font-size: 16px;
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -90,7 +91,7 @@ const isWorkActive = computed(
 
 .role {
   color: var(--color-text-secondary);
-  font-size: 12.5px;
+  font-size: 16px;
   text-transform: uppercase;
   transition: color 0.25s ease;
 }

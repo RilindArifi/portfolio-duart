@@ -11,7 +11,10 @@ defineProps({
   <ul class="timeline-list">
     <li v-for="item in experience" :key="item.company" class="timeline-row">
       <span class="year">{{ item.year }}</span>
-      <a :href="item.url" class="company">{{ item.company }}</a>
+      <a v-if="item.url" :href="item.url" class="company" target="_blank" rel="noopener">{{
+        item.company
+      }}</a>
+      <span v-else class="company">{{ item.company }}</span>
       <span class="role">{{ item.role }}</span>
     </li>
   </ul>

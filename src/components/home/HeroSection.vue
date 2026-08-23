@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import TimelineList from './TimelineList.vue'
 import { experience } from '@/data/experience.js'
 
-const words = ['designer', 'product']
+const words = ['experiences', 'design']
 const typedWord = ref('')
 const showPeriod = ref(false)
 let wordIndex = 0
@@ -46,9 +46,10 @@ onUnmounted(() => clearTimeout(timeoutId))
 <template>
   <section class="hero">
     <h1 class="headline">
-      I'm Duart, a creative
-      <span class="typewriter">{{ typedWord }}<span class="cursor"></span></span
-      ><span v-show="showPeriod">.</span>
+      I'm Duart, a Product Designer turning complex ideas into simple
+      <span class="typewriter"
+        >{{ typedWord }}<span v-show="showPeriod">.</span><span class="cursor"></span
+      ></span>
     </h1>
     <TimelineList :experience="experience" />
   </section>
@@ -99,6 +100,12 @@ onUnmounted(() => clearTimeout(timeoutId))
   .hero {
     grid-template-columns: 1fr;
     margin-top: 56px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1650px) {
+  .typewriter {
+    display: block;
   }
 }
 </style>
