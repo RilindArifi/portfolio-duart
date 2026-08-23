@@ -4,16 +4,15 @@ compatibility_date = "2024-11-01"
 
 [[kv_namespaces]]
 binding = "RATE_LIMIT_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-preview_id = "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
+id = "9b4f7f5830db4a3a8af714e533bcccd7"
+preview_id = "9f534e6057f24fab96b5ec1475f9daca"
 
 [ai]
 binding = "AI"
 
 [vars]
 # Comma-separated list of origins allowed to call this Worker.
-# Replace the production entry with the real Namecheap-hosted domain before deploying.
-ALLOWED_ORIGINS = "https://duart.dev,http://localhost:5173,http://127.0.0.1:5173"
+ALLOWED_ORIGINS = "https://duartkasapolli.com,https://www.duartkasapolli.com,http://localhost:5173,http://127.0.0.1:5173"
 RATE_LIMIT_MAX = "18"
 RATE_LIMIT_WINDOW_SECONDS = "3600"
 

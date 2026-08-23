@@ -1,21 +1,45 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { projects } from '@/data/projects.js'
 import { caseStudySections, sectionCopy } from '@/data/caseStudy.js'
 
 const route = useRoute()
 const project = computed(() => projects.find((p) => p.slug === route.params.slug))
+
+const activeSection = ref(caseStudySections[0].id)
+let observer
+
+function observeSections() {
+  observer?.disconnect()
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) activeSection.value = entry.target.id
+      })
+    },
+    { rootMargin: '-96px 0px -70% 0px', threshold: 0 },
+  )
+  document.querySelectorAll('.case-section').forEach((el) => observer.observe(el))
+}
+
+onMounted(() => nextTick(observeSections))
+watch(() => route.params.slug, () => nextTick(observeSections))
+onUnmounted(() => observer?.disconnect())
 </script>
 
 <template>
   <div v-if="project" class="project-detail">
-    <RouterLink to="/" class="back-link">← Back</RouterLink>
-
     <div class="detail-layout">
       <aside class="toc">
+        <RouterLink to="/" class="back-link">← Back</RouterLink>
         <nav>
-          <a v-for="section in caseStudySections" :key="section.id" :href="`#${section.id}`">
+          <a
+            v-for="section in caseStudySections"
+            :key="section.id"
+            :href="`#${section.id}`"
+            :class="{ active: activeSection === section.id }"
+          >
             {{ section.label }}
           </a>
         </nav>
@@ -88,9 +112,16 @@ const project = computed(() => projects.find((p) => p.slug === route.params.slug
   margin-top: var(--space-6);
 }
 
-.toc nav {
+.toc {
   position: sticky;
   top: var(--space-6);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.toc nav {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -105,6 +136,11 @@ const project = computed(() => projects.find((p) => p.slug === route.params.slug
 
 .toc a:hover {
   color: var(--color-accent);
+}
+
+.toc a.active {
+  color: var(--color-text-primary);
+  font-weight: 600;
 }
 
 .meta {
@@ -187,8 +223,12 @@ const project = computed(() => projects.find((p) => p.slug === route.params.slug
     grid-template-columns: 1fr;
   }
 
-  .toc nav {
+  .toc {
     position: static;
+    gap: var(--space-3);
+  }
+
+  .toc nav {
     flex-direction: row;
     flex-wrap: wrap;
     gap: var(--space-3) var(--space-4);

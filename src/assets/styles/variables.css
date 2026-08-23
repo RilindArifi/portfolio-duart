@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Grain Variable';
+  src: url('/fonts/Grain-Variable_Trial.woff2') format('woff2-variations'),
+    url('/fonts/Grain-Variable_Trial.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --color-bg: #fafcfd;
   --color-surface: #ffffff;
@@ -10,9 +19,9 @@
   --color-accent: #e2672e;
   --color-accent-hover: #c85526;
 
-  --font-serif: 'Lora', Georgia, serif;
-  --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Grain Variable', Georgia, serif;
+  --font-mono: 'Grain Variable', 'JetBrains Mono', monospace;
+  --font-sans: 'Grain Variable', system-ui, sans-serif;
 
   --space-2: 8px;
   --space-3: 16px;
@@ -24,7 +33,7 @@
   --radius-sm: 6px;
   --radius-md: 12px;
 
-  --container-max: 1280px;
+  --container-max: 1800px;
   --container-pad: 32px;
 }
 

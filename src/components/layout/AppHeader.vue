@@ -11,47 +11,80 @@ const isWorkActive = computed(
 
 <template>
   <header class="app-header">
-    <div class="identity">
-      <span class="name">Duart</span>
-      <span class="role">UI/UX Designer</span>
-    </div>
-    <nav class="header-nav">
-      <RouterLink to="/" :class="{ 'router-link-active': isWorkActive }">Work</RouterLink>
-      <RouterLink to="/fun">Fun</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <a href="/Duart_CV.pdf" target="_blank" rel="noopener">Resume</a>
-    </nav>
-    <div class="header-actions">
-      <ChatToggle />
+    <div class="header-inner">
+      <RouterLink to="/" class="identity">
+        <span class="avatar-wrap">
+          <img class="avatar avatar-default" src="/images/header-avatar.png" alt="Duart Kasapolli" />
+          <img class="avatar avatar-hover" src="/images/header-avatar-hover.png" alt="Duart Kasapolli" />
+        </span>
+        <span class="name">Duart Kasapolli</span>
+        <span class="role">Product Designer</span>
+      </RouterLink>
+      <nav class="header-nav">
+        <RouterLink to="/" :class="{ 'router-link-active': isWorkActive }">Work</RouterLink>
+        <RouterLink to="/fun">Fun</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <a href="/Duart_CV.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+      <div class="header-actions">
+        <ChatToggle />
+      </div>
     </div>
   </header>
 </template>
 
 <style scoped>
 .app-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
   height: 65px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 var(--container-pad);
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .identity {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-3);
   font-family: var(--font-mono);
   justify-self: start;
 }
 
+.avatar-wrap {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.avatar {
+  position: absolute;
+  inset: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: opacity 0.25s ease;
+}
+
+.avatar-hover {
+  opacity: 0;
+}
+
+.identity:hover .avatar-hover {
+  opacity: 1;
+}
+
 .name {
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.02em;
 }
 
@@ -59,6 +92,17 @@ const isWorkActive = computed(
   color: var(--color-text-secondary);
   font-size: 12.5px;
   text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.identity:hover .role {
+  color: var(--color-accent);
+}
+
+.role::before {
+  content: '•';
+  margin-right: var(--space-2);
+  color: var(--color-text-muted);
 }
 
 .header-right {

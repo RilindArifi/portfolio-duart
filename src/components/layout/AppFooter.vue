@@ -2,24 +2,31 @@
 
 <template>
   <footer class="app-footer">
-    <span class="signature">designed + coded with ♥ by duart</span>
-    <div class="socials">
-      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:hello@duart.dev">Email</a>
-      <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+    <div class="footer-inner">
+      <span class="signature">designed + coded with ♥ by duart</span>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/duartkasapollii/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:kasapolliduart@gmail.com">Email</a>
+        <a href="https://dribbble.com" target="_blank" rel="noopener">Dribbble</a>
+      </div>
     </div>
   </footer>
 </template>
 
 <style scoped>
 .app-footer {
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-3);
   padding: var(--container-pad);
-  border-top: 1px solid var(--color-border);
 }
 
 .signature {

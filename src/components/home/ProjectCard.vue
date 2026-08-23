@@ -36,7 +36,6 @@ defineProps({
 .image-wrap {
   position: relative;
   aspect-ratio: 16 / 9;
-  border-radius: var(--radius-md);
   overflow: hidden;
 }
 

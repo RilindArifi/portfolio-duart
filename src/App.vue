@@ -30,6 +30,8 @@ const { isOpen } = useAskDuart()
 }
 
 .app-main {
+  max-width: var(--container-max);
+  margin: 0 auto;
   padding: var(--space-6) var(--container-pad);
 }
 
