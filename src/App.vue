@@ -37,7 +37,7 @@ const { isOpen } = useAskDuart()
 
 @media (max-width: 768px) {
   .app-main {
-    padding: var(--space-5) var(--container-pad);
+    padding: 0 var(--container-pad) var(--space-5);
   }
 }
 

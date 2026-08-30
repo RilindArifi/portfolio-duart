@@ -47,22 +47,23 @@ defineProps({
 
 .meta-row {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-3);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
   margin-top: var(--space-3);
 }
 
 .title {
   font-family: var(--font-serif);
-  font-size: 19px;
+  font-size: 17px;
+  color: #32404f;
 }
 
 .meta {
   font-family: var(--font-mono);
   text-transform: uppercase;
-  font-size: 12.5px;
-  color: var(--color-text-secondary);
+  font-size: 15px;
+  color: #32404f95;
   white-space: nowrap;
 }
 </style>

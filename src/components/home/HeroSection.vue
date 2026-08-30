@@ -45,13 +45,24 @@ onUnmounted(() => clearTimeout(timeoutId))
 
 <template>
   <section class="hero">
-    <h1 class="headline">
-      I'm Duart, a product designer who turns<br />
-      complexity into
-      <span class="typewriter"
-        >{{ typedWord }}<span v-show="showPeriod">.</span><span class="cursor"></span
-      ></span>
-    </h1>
+    <div class="hero-copy">
+      <h1 class="headline">
+        I'm Duart, a product designer who turns<br />
+        complexity into
+        <br class="type-break" />
+        <span class="typewriter"
+          >{{ typedWord }}<span v-show="showPeriod">.</span><span class="cursor"></span
+        ></span>
+      </h1>
+      <a
+        class="book-call-btn"
+        href="https://cal.com/duart-kasapolli-design/30min"
+        target="_blank"
+        rel="noopener"
+      >
+        Book a call
+      </a>
+    </div>
     <TimelineList :experience="experience" />
   </section>
 </template>
@@ -65,11 +76,41 @@ onUnmounted(() => clearTimeout(timeoutId))
   margin-top: 136px;
 }
 
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
 .headline {
   font-family: var(--font-serif);
   font-size: clamp(1.5rem, 2.6vw, 2.5rem);
   line-height: 1.25;
   font-weight: 400;
+}
+
+.book-call-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  transition: background 0.15s ease;
+}
+
+.book-call-btn:hover {
+  background: var(--color-accent-hover);
+}
+
+.type-break {
+  display: none;
 }
 
 .typewriter {
@@ -105,7 +146,13 @@ onUnmounted(() => clearTimeout(timeoutId))
   }
 
   .headline {
-    font-size: clamp(1.85rem, 7vw, 2.5rem);
+    font-size: 2.75rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .type-break {
+    display: block;
   }
 }
 </style>

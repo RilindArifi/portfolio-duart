@@ -35,17 +35,6 @@ function handleChip(text) {
       <header class="panel-header">
         <span class="panel-title">Ask Duart</span>
         <div class="panel-actions">
-          <button
-            class="icon-btn"
-            title="AskDuart is an AI assistant answering on Duart's behalf — it may be imprecise."
-            aria-label="About AskDuart"
-          >
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="9" />
-              <line x1="12" y1="11" x2="12" y2="16" />
-              <circle cx="12" cy="8" r="0.5" fill="currentColor" />
-            </svg>
-          </button>
           <button class="icon-btn" aria-label="Reset conversation" @click="reset">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M3 12a9 9 0 1 0 3-6.7" />
@@ -100,7 +89,7 @@ function handleChip(text) {
         <input
           v-model="inputText"
           type="text"
-          placeholder="Ask about Duart..."
+          placeholder="Ask about Duart"
           :disabled="rateLimited"
           @keydown.enter="handleSend"
         />
@@ -175,8 +164,8 @@ function handleChip(text) {
   font-family: var(--font-mono);
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 13px;
-  color: var(--color-text-primary);
+  font-size: 15px;
+  color: #32404f;
 }
 
 .panel-actions {
@@ -209,12 +198,13 @@ function handleChip(text) {
 }
 
 .panel-body.is-welcome {
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .welcome-heading {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: 24px;
+  letter-spacing: -0.02em;
   color: var(--color-text-primary);
   margin-bottom: var(--space-2);
 }
@@ -248,7 +238,8 @@ function handleChip(text) {
 }
 
 .role-assistant .bubble {
-  color: var(--color-text-primary);
+  font-size: 15px;
+  color: #32404f;
 }
 
 .role-system .bubble {

@@ -32,7 +32,7 @@ onUnmounted(() => observer?.disconnect())
   <div v-if="project" class="project-detail">
     <div class="detail-layout">
       <aside class="toc">
-        <RouterLink to="/" class="back-link">← Back</RouterLink>
+        <RouterLink to="/" class="back-link"><span class="back-arrow">←</span> Back</RouterLink>
         <nav>
           <a
             v-for="section in caseStudySections"
@@ -96,8 +96,8 @@ onUnmounted(() => observer?.disconnect())
   display: inline-block;
   font-family: var(--font-mono);
   text-transform: uppercase;
-  font-size: 13px;
-  color: var(--color-text-secondary);
+  font-size: 15px;
+  color: #32404f95;
   transition: color 0.15s ease;
 }
 
@@ -105,11 +105,17 @@ onUnmounted(() => observer?.disconnect())
   color: var(--color-accent);
 }
 
+.back-arrow {
+  display: inline-block;
+  margin-right: var(--space-2);
+}
+
 .detail-layout {
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: var(--space-6);
-  margin-top: var(--space-6);
+  margin-top: 0;
+  padding-right: var(--space-7);
 }
 
 .toc {
@@ -129,8 +135,8 @@ onUnmounted(() => observer?.disconnect())
 
 .toc a {
   font-family: var(--font-sans);
-  font-size: 14px;
-  color: var(--color-text-secondary);
+  font-size: 16px;
+  color: #32404f95;
   transition: color 0.15s ease;
 }
 
@@ -139,22 +145,24 @@ onUnmounted(() => observer?.disconnect())
 }
 
 .toc a.active {
-  color: var(--color-text-primary);
-  font-weight: 600;
+  color: #32404f;
+  font-weight: 400;
 }
 
 .meta {
   font-family: var(--font-mono);
   text-transform: uppercase;
-  font-size: 13px;
-  color: var(--color-text-secondary);
+  font-size: 15px;
+  color: #32404f95;
 }
 
 .headline {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-  font-weight: 400;
+  font-size: 2.75rem;
+  line-height: 1.1;
+  font-weight: inherit;
+  letter-spacing: -0.02em;
+  color: #32404f;
   margin-top: var(--space-3);
 }
 
@@ -182,14 +190,15 @@ onUnmounted(() => observer?.disconnect())
   display: block;
   font-family: var(--font-mono);
   text-transform: uppercase;
-  font-size: 12.5px;
-  color: var(--color-text-secondary);
+  font-size: 15px;
+  color: #32404f95;
   margin-bottom: var(--space-2);
 }
 
 .info-col p {
   font-family: var(--font-sans);
-  font-size: 14.5px;
+  font-size: 15px;
+  color: #32404f95;
 }
 
 .case-section {
@@ -207,8 +216,9 @@ onUnmounted(() => observer?.disconnect())
 
 .case-section p {
   font-family: var(--font-sans);
+  font-size: 15px;
   line-height: 1.7;
-  color: var(--color-text-primary);
+  color: #32404f95;
 }
 
 .not-found {
@@ -221,6 +231,7 @@ onUnmounted(() => observer?.disconnect())
 @media (max-width: 768px) {
   .detail-layout {
     grid-template-columns: 1fr;
+    padding-right: 0;
   }
 
   .toc {
@@ -229,9 +240,7 @@ onUnmounted(() => observer?.disconnect())
   }
 
   .toc nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-3) var(--space-4);
+    display: none;
   }
 
   .info-grid {

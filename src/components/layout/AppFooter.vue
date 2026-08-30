@@ -22,34 +22,49 @@
   max-width: var(--container-max);
   margin: 0 auto;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: var(--space-3);
+  gap: var(--space-4);
   padding: var(--container-pad);
 }
 
 .signature {
   font-family: var(--font-mono);
   text-transform: uppercase;
-  font-size: 12.5px;
-  color: var(--color-text-secondary);
+  font-size: 15px;
+  font-weight: 400;
+  color: #32404f95;
 }
 
 .socials {
   display: flex;
-  gap: 24px;
+  flex-direction: row;
+  gap: var(--space-4);
   font-family: var(--font-mono);
   text-transform: uppercase;
-  font-size: 12.5px;
+  font-size: 15px;
 }
 
 .socials a {
-  color: var(--color-text-primary);
+  color: #32404f95;
   transition: color 0.15s ease;
 }
 
 .socials a:hover {
   color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .socials {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
 }
 </style>

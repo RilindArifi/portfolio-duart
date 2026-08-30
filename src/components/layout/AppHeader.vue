@@ -29,12 +29,13 @@ watch(() => route.fullPath, closeMenu)
           <img class="avatar avatar-default" src="/images/header-avatar.png" alt="Duart Kasapolli" />
           <img class="avatar avatar-hover" src="/images/header-avatar-hover.png" alt="Duart Kasapolli" />
         </span>
-        <span class="name">Duart Kasapolli</span>
-        <span class="role">Product Designer</span>
+        <span class="identity-text">
+          <span class="name">Duart Kasapolli</span>
+          <span class="role">Product Designer</span>
+        </span>
       </RouterLink>
       <nav class="header-nav">
         <RouterLink to="/" :class="{ 'router-link-active': isWorkActive }">Work</RouterLink>
-        <RouterLink to="/fun">Fun</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <a href="/Duart_CV.pdf" target="_blank" rel="noopener">Resume</a>
       </nav>
@@ -56,7 +57,6 @@ watch(() => route.fullPath, closeMenu)
     <div class="mobile-nav-wrap" :class="{ 'is-open': isMenuOpen }">
       <nav class="mobile-nav">
         <RouterLink to="/" :class="{ 'router-link-active': isWorkActive }">Work</RouterLink>
-        <RouterLink to="/fun">Fun</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <a href="/Duart_CV.pdf" target="_blank" rel="noopener">Resume</a>
       </nav>
@@ -66,6 +66,7 @@ watch(() => route.fullPath, closeMenu)
 
 <style scoped>
 .app-header {
+  position: relative;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 }
@@ -83,23 +84,23 @@ watch(() => route.fullPath, closeMenu)
 .identity {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 15px;
   font-family: var(--font-mono);
   justify-self: start;
 }
 
 .avatar-wrap {
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   flex-shrink: 0;
 }
 
 .avatar {
   position: absolute;
   inset: 0;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   transition: opacity 0.25s ease;
@@ -111,6 +112,11 @@ watch(() => route.fullPath, closeMenu)
 
 .identity:hover .avatar-hover {
   opacity: 1;
+}
+
+.identity-text {
+  display: flex;
+  align-items: center;
 }
 
 .name {
@@ -203,7 +209,7 @@ watch(() => route.fullPath, closeMenu)
 }
 
 .header-nav a {
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
   transition: color 0.15s ease;
 }
 
@@ -216,8 +222,20 @@ watch(() => route.fullPath, closeMenu)
 }
 
 @media (max-width: 640px) {
+  .identity-text {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
   .role {
-    display: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #32404f95;
+  }
+
+  .role::before {
+    content: none;
   }
 }
 
@@ -235,8 +253,16 @@ watch(() => route.fullPath, closeMenu)
   }
 
   .mobile-nav-wrap {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     display: grid;
     grid-template-rows: 0fr;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06);
+    z-index: 30;
     transition: grid-template-rows 0.3s ease;
   }
 
@@ -256,11 +282,11 @@ watch(() => route.fullPath, closeMenu)
   }
 
   .mobile-nav-wrap.is-open .mobile-nav {
-    padding: var(--space-2) var(--container-pad) var(--space-5);
+    padding: var(--space-4) var(--container-pad) var(--space-5);
   }
 
   .mobile-nav a {
-    color: var(--color-text-primary);
+    color: var(--color-text-secondary);
     transition: color 0.15s ease;
   }
 

@@ -30,7 +30,7 @@ defineProps({
   column-gap: var(--space-4);
   row-gap: 12px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .timeline-row {
@@ -71,7 +71,7 @@ defineProps({
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    gap: var(--space-3);
+    gap: var(--space-6);
   }
 
   .year {
