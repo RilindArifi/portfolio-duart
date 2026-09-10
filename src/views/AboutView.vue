@@ -16,8 +16,8 @@ import { photoSections } from '@/data/photos.js'
       </ul>
     </div>
     <div class="intro-photo">
-      <img class="photo-default" src="/images/about-photo.png" alt="Duart Kasapolli" />
-      <img class="photo-hover" src="/images/about-photo-hover.png" alt="Duart Kasapolli" />
+      <img class="photo-default" src="/images/about-photo.webp" alt="Duart Kasapolli" />
+      <img class="photo-hover" src="/images/about-photo-hover.webp" alt="Duart Kasapolli" />
     </div>
   </section>
 

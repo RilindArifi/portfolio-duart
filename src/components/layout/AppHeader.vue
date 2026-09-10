@@ -25,10 +25,6 @@ watch(() => route.fullPath, closeMenu)
   <header class="app-header">
     <div class="header-inner">
       <RouterLink to="/" class="identity">
-        <span class="avatar-wrap">
-          <img class="avatar avatar-default" src="/images/header-avatar.png" alt="Duart Kasapolli" />
-          <img class="avatar avatar-hover" src="/images/header-avatar-hover.png" alt="Duart Kasapolli" />
-        </span>
         <span class="identity-text">
           <span class="name">Duart Kasapolli</span>
           <span class="role">Product Designer</span>
@@ -84,34 +80,8 @@ watch(() => route.fullPath, closeMenu)
 .identity {
   display: flex;
   align-items: center;
-  gap: 15px;
   font-family: var(--font-mono);
   justify-self: start;
-}
-
-.avatar-wrap {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-}
-
-.avatar {
-  position: absolute;
-  inset: 0;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: opacity 0.25s ease;
-}
-
-.avatar-hover {
-  opacity: 0;
-}
-
-.identity:hover .avatar-hover {
-  opacity: 1;
 }
 
 .identity-text {
@@ -139,7 +109,7 @@ watch(() => route.fullPath, closeMenu)
 
 .role::before {
   content: '•';
-  margin-right: var(--space-2);
+  margin: 0 var(--space-2);
   color: var(--color-text-muted);
 }
 

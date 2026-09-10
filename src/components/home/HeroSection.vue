@@ -47,7 +47,8 @@ onUnmounted(() => clearTimeout(timeoutId))
   <section class="hero">
     <div class="hero-copy">
       <h1 class="headline">
-        I'm Duart, a product designer who turns<br />
+        I'm Duart, a product designer who turns
+        <br class="wide-break" />
         complexity into
         <br class="type-break" />
         <span class="typewriter"
@@ -85,7 +86,7 @@ onUnmounted(() => clearTimeout(timeoutId))
 
 .headline {
   font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 2.6vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.55vw, 2.5rem);
   line-height: 1.25;
   font-weight: 400;
 }
@@ -109,8 +110,23 @@ onUnmounted(() => clearTimeout(timeoutId))
   background: var(--color-accent-hover);
 }
 
-.type-break {
+.wide-break {
   display: none;
+}
+
+.type-break {
+  display: block;
+}
+
+/* Only wide enough here for the designed two-line break after "turns". */
+@media (min-width: 1440px) {
+  .wide-break {
+    display: block;
+  }
+
+  .type-break {
+    display: none;
+  }
 }
 
 .typewriter {
@@ -149,10 +165,6 @@ onUnmounted(() => clearTimeout(timeoutId))
     font-size: 2.75rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
-  }
-
-  .type-break {
-    display: block;
   }
 }
 </style>
