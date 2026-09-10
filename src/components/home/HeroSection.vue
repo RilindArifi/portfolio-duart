@@ -74,7 +74,8 @@ onUnmounted(() => clearTimeout(timeoutId))
   grid-template-columns: 1fr 1fr;
   gap: var(--space-4);
   align-items: start;
-  margin-top: 136px;
+  /* Matches the reference's 26vh hero offset, minus .app-main's own top padding. */
+  margin-top: calc(26vh - var(--space-6));
 }
 
 .hero-copy {
@@ -114,8 +115,9 @@ onUnmounted(() => clearTimeout(timeoutId))
   display: none;
 }
 
+/* The typed word only drops to its own line on phones. */
 .type-break {
-  display: block;
+  display: none;
 }
 
 /* Only wide enough here for the designed two-line break after "turns". */
@@ -123,9 +125,11 @@ onUnmounted(() => clearTimeout(timeoutId))
   .wide-break {
     display: block;
   }
+}
 
+@media (max-width: 640px) {
   .type-break {
-    display: none;
+    display: block;
   }
 }
 

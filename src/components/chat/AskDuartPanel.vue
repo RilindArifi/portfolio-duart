@@ -152,7 +152,8 @@ function handleChip(text) {
 }
 
 .panel-header {
-  height: 87px;
+  /* Matches .header-inner's 65px min-height plus the header's 1px border. */
+  height: 66px;
   display: flex;
   align-items: center;
   justify-content: space-between;

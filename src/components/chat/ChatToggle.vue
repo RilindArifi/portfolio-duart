@@ -82,12 +82,6 @@ const { isOpen, toggle } = useAskDuart()
 }
 
 @media (max-width: 640px) {
-  .chat-toggle-label {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
   .chat-toggle {
     position: fixed;
     right: var(--space-4);

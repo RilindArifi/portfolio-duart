@@ -47,6 +47,7 @@ defineProps({
 }
 
 .company {
+  color: #32404f;
   transition: color 0.15s ease;
 }
 
@@ -60,7 +61,8 @@ defineProps({
   white-space: nowrap;
 }
 
-@media (max-width: 640px) {
+/* Tablet and below: stack company over role, like the single-column hero. */
+@media (max-width: 768px) {
   .timeline-list {
     display: flex;
     flex-direction: column;

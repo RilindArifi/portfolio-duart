@@ -191,6 +191,25 @@ watch(() => route.fullPath, closeMenu)
   color: var(--color-accent);
 }
 
+/* Tablet: keep the full nav inline, but let the identity size to its content
+   instead of being squeezed by the symmetric 1fr auto 1fr columns. */
+@media (min-width: 641px) and (max-width: 900px) {
+  .header-inner {
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-3);
+  }
+
+  .name,
+  .role,
+  .header-nav {
+    font-size: 13px;
+  }
+
+  .header-nav {
+    gap: 24px;
+  }
+}
+
 @media (max-width: 640px) {
   .identity-text {
     align-items: flex-start;
@@ -209,7 +228,7 @@ watch(() => route.fullPath, closeMenu)
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .header-inner {
     grid-template-columns: 1fr auto;
   }

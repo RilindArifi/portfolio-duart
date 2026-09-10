@@ -228,7 +228,27 @@ onUnmounted(() => observer?.disconnect())
   gap: var(--space-3);
 }
 
+/* .app-main drops its top padding below 768px, so the page needs its own. */
 @media (max-width: 768px) {
+  .project-detail {
+    padding-top: var(--space-5);
+  }
+}
+
+/* Tablet: keep the laptop two-column layout, just tighter. */
+@media (min-width: 641px) and (max-width: 900px) {
+  .detail-layout {
+    grid-template-columns: 150px 1fr;
+    gap: var(--space-4);
+    padding-right: 0;
+  }
+
+  .toc a {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 640px) {
   .detail-layout {
     grid-template-columns: 1fr;
     padding-right: 0;
